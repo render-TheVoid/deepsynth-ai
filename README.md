@@ -22,6 +22,10 @@
 - **Local Model:** Ollama Deepseek-R1 1.5B (distilled 4-bit quantized model)  
 - **Data Storage:** Frontend JSON export (no database required)
 
+## Screenshot
+
+![DeepSynth AI](screenshot.png)
+
 ---
 
 ## Getting Started
