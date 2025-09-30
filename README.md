@@ -24,7 +24,7 @@
 
 ## Screenshot
 
-![DeepSynth AI](screenshot.png)
+![DeepSynth AI](deepsynth-ai.png)
 
 ---
 
