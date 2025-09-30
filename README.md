@@ -1,4 +1,4 @@
-# ** DeepSynth **
+# DeepSynth
 
 **DeepSynth** is a web-based chatbot powered by a **local LLM** (Ollama Deepseek-R1 1.5B, distilled 4-bit quantized model). It allows users to chat locally with the model and download their conversation logs as JSON. No database is required — all data is handled in-memory or exported from the frontend.
 
