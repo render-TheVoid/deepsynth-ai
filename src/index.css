@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
+
+* {
+    font-family: "Inter";
+}
+ 
+pre {
+    @apply rounded-lg pb-4 pt-4;
+    font-family: 'Fira Code';
+}
+
+code {
+    @apply rounded-xl;
+    font-family: 'JetBrains Mono';
+    padding: 3px;
+    background-color: #313131;
+    border-radius: 8px;
+}
+
+code span {
+  font-family: 'Fira Code';
+  /* font-size: 12px; */
+}
+
+.custom-scroll::-webkit-scrollbar,
+.sidebar-scroll::-webkit-scrollbar,
+code::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb, 
+.sidebar-scroll::-webkit-scrollbar-thumb,
+code::-webkit-scrollbar{
+  background-color: #555;
+  border-radius: 50px;
+}
+
+.custom-scroll::-webkit-scrollbar-track,
+.sidebar-scroll::-webkit-scrollbar-track,
+code::-webkit-scrollbar {
+  background-color: #1e1e1e;
+}
