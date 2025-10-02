@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { auth } from 'express-oauth2-jwt-bearer';
+
 const app = express();
 dotenv.config();
 
@@ -8,17 +10,24 @@ const PORT = process.env.PORT || 5000;
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
 const MODEL = process.env.MODEL || "deepseek-r1:1.5b";
 
+const jwtCheck = auth({
+  audience: 'https://deepsynth-api.local',
+  issuerBaseURL: `https://${process.env.VITE_AUTH0_DOMAIN}/`,
+  tokenSigningAlg: 'RS256'
+});
+
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:5173",
-    method: ["GET", "POST"]
+    method: ["GET", "POST"],
+    allowedHeaders: ["Authorization", "Content-Type"]
 }));
 
 app.get('/', (req, res) => {
     res.send("Welcome to voidGPT!");
 });
 
-app.post('/chat', async (req, res) => {
+app.post('/chat', jwtCheck, async (req, res) => {
     const { prompt } = req.body;
     try {
         const response = await fetch(`${OLLAMA_BASE_URL}/api/chat`, {

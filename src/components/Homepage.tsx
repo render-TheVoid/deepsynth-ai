@@ -7,11 +7,13 @@ import rehypeHighlight from "rehype-highlight";
 import Sidebar from "./Sidebar";
 import remarkGfm from 'remark-gfm';
 import 'highlight.js/styles/a11y-dark.min.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Homepage = () => {
 
   const [prompt, setPrompt] = useState<string>("");
   const [response, setResponse] = useState<string>("");
+  const { getAccessTokenSilently } = useAuth0();
 
   type Message = { type: "user" | "system"; content: string };
   const [messages, setMessages] = useState<Message[]>([]);
@@ -32,7 +34,19 @@ const Homepage = () => {
     setPrompt('');
 
     try {
-      const res = await axios.post("http://localhost:5000/chat", { prompt: prompt });
+      const token = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: "https://deepsynth-api.local"
+        }
+      });
+      const res = await axios.post(
+        "http://localhost:5000/chat",
+        { prompt: prompt },
+        { headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+          }
+        });
       const finalResponse = res.data.output.replace(/<think>(.*?)<\/think>/gs, '');
       setMessages(prev => [...prev, { type: "system", content: finalResponse }]);
       setResponse(finalResponse);
@@ -121,7 +135,7 @@ const Homepage = () => {
   }
 
   function downloadExistingJSON(chatData: Chat[]) {
-    if(!chatData[0]) {
+    if (!chatData[0]) {
       window.alert("Try asking something first!");
       return;
     }

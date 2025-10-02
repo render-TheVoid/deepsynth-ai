@@ -1,5 +1,7 @@
 import newChatIcon from '../assets/addIcon.svg';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../context/AuthContext';
 // import settingsIcon from '../assets/settings.svg';
 // import { useState,  } from 'react';
 
@@ -12,6 +14,25 @@ const Sidebar = ({ message }: SidebarProps) => {
     const refreshHandle = (): void => {
         window.location.reload();
     };
+
+    const authContext = useContext(AuthContext);
+
+    if (!authContext) {
+        throw new Error("Sidebar!");
+    }
+
+    const { loginWithRedirect, isAuthenticated, user, isLoading, logout } = authContext;
+
+    const handleLogin = () => {
+        loginWithRedirect();
+    }
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            console.log(user);
+        }
+    }, [])
+
 
     return (
         <div className='flex flex-col p-2 gap-3 w-60 bg-[#141414] h-screen justify-between fixed overflow-y-auto overflow-x-hidden sidebar-scroll'>
@@ -40,8 +61,16 @@ const Sidebar = ({ message }: SidebarProps) => {
                         {/* <img src={userIcon} alt='user-icon' className='w-6' /> */}
                         <p className='text-[#ffffff60] text-center'>Made by Rishabh</p>
                     </div>
-                    {/* <div className="set p-2 pl-5 rounded-3xl flex flex-row justify-between items-center bg-gradient-to-r" >
-                    </div> */}
+                    {!isAuthenticated && <div className="set p-2 pl-5 bg-gradient-to-r from-white/60 via-white/90 to-white/60 hover:bg-white/50 cursor-pointer rounded-2xl flex flex-row justify-between text-center" onClick={() => handleLogin()} >
+                        <p>Sign In</p>
+                    </div>}
+                    {isAuthenticated && <div className="set p-2 pl-5 bg-gradient-to-r from-white/60 via-white/90 to-white/60 hover:bg-white/50 cursor-pointer rounded-2xl flex flex-row gap-5 text-center">
+                        <img src={user?.picture} alt="" className='w-6 rounded-[50px]' />
+                        <p>{user?.name}</p>
+                    </div>}
+                    {isAuthenticated && <div className="set py-2 hover:bg-red-500/20 cursor-pointer rounded-2xl flex flex-row justify-center text-center" onClick={() => logout()} >
+                        <p className='text-red-800'>Sign Out</p>
+                    </div>}
                 </div>
             </div>
         </div>
