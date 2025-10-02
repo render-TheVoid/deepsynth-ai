@@ -8,7 +8,8 @@
 
 - **Local LLM Integration:** Uses `deepseek-r1:1.5b` locally for fast, private inference.  
 - **Frontend:** Built with React.js and styled using Tailwind CSS. Handles chat UI and JSON export.  
-- **Backend:** Node.js + Express.js handles chat messages to the local model.  
+- **Backend:** Node.js + Express.js handles chat messages to the local model and validates JWT tokens.
+- **Authentication:** Secured user login via Auth0 SPA + JWT backend, providing protected endpoints for chat.
 - **Downloadable Chat Logs:** Frontend allows exporting conversations as structured JSON files.  
 - **Session Metadata:** Each message includes timestamps, roles, and model metadata (like quantization and response time).  
 - **No Database:** All chats are temporary and can be saved locally as JSON.
