@@ -153,7 +153,7 @@ const Homepage = () => {
   return (
     <div>
       <Sidebar message={messages[0]?.content} />
-      <div className='bg-[#1b1b1b] ml-[240px] w-[calc(100%-240px)] h-screen flex flex-col mx-auto'>
+      <div className='bg-[#101010] ml-[240px] w-[calc(100%-240px)] h-screen flex flex-col mx-auto'>
         {messages.length == 0 && (
           <div className="relative top-25 p-50 text-white/80  font-bold text-center">
             <h1 className="text-center bg-gradient-to-t from-white/35 to-white/85 text-5xl  bg-clip-text text-transparent">{welcome}</h1>
@@ -178,7 +178,7 @@ const Homepage = () => {
 
         <div className="prompt-bar flex justify-center flex-col gap-2 pt-3 border-t border-t-white/20 shadow-3xl shadow-black/50 relative">
           <div className="flex flex-row justify-center gap-2">
-            <div onClick={() => downloadExistingJSON(messages)} className="p-2 rounded-4xl hover:bg-white/70 cursor-pointer bg-gradient-to-r absolute -translate-x-[306px] translate-y-[7px] from-white/70 via-white/85 to-white/70"><img className="w-7" src={Download} title="Download this chat as JSON format"></img></div>
+            <div onClick={() => downloadExistingJSON(messages)} className="p-2 rounded-4xl hover:bg-white/70 cursor-pointer bg-gradient-to-r absolute -translate-x-[307px] translate-y-[7px] from-white/70 via-white/85 to-white/70"><img className="w-7" src={Download} title="Download this chat as JSON format"></img></div>
             <input
               type="text"
               className='bg-[#262626] pl-16 p-4 w-2xl pr-14  rounded-4xl shadow-xl text-white focus:outline-none border border-white/20'
