@@ -156,7 +156,7 @@ const Homepage = () => {
       <div className='bg-[#101010] ml-[240px] w-[calc(100%-240px)] h-screen flex flex-col mx-auto'>
         {messages.length == 0 && (
           <div className="relative top-25 p-50 text-white/80  font-bold text-center">
-            <h1 className="text-center bg-gradient-to-t from-white/35 to-white/85 text-5xl  bg-clip-text text-transparent">{welcome}</h1>
+            <h1 className="text-center bg-gradient-to-t from-white/35 to-white/85 text-5xl pb-1  bg-clip-text text-transparent">{welcome}</h1>
           </div>
         )}
         <div className="chatbox text-white w-full mx-auto space-y-4 pt-10 pb-5 overflow-auto p-[20%] custom-scroll h-full">

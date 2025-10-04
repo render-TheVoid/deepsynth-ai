@@ -14,7 +14,7 @@ const Topbar = () => {
     const welcomeLines = [
         `Oh look, ${user?.given_name} alive again.`,
         `${user?.given_name} enters, applause not included.`,
-        `Guess who decided to log in — ${user?.given_name}.`,
+        `Guess who decided to log in — ${user?.giqven_name}.`,
         `User ${user?.given_name} finally authenticated, wow.`,
         `Connection established: ${user?.given_name} actually showed up.`,
         `Surprise login: ${user?.given_name}, the myth.`,
