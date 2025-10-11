@@ -1,12 +1,12 @@
 # DeepSynth
 
-**DeepSynth** is a web-based chatbot powered by a **local LLM** (Ollama Deepseek-R1 1.5B, distilled 4-bit quantized model). It allows users to chat locally with the model and download their conversation logs as JSON. No database is required — all data is handled in-memory or exported from the frontend.
+**DeepSynth** is a web-based chatbot powered by a **local LLM** (Google's DeepMind Gemma 3 4B, distilled 4-bit quantized model). It allows users to chat locally with the model and download their conversation logs as JSON. No database is required — all data is handled in-memory or exported from the frontend.
 
 ---
 
 ## Features
 
-- **Local LLM Integration:** Uses `deepseek-r1:1.5b` locally for fast, private inference.  
+- **Local LLM Integration:** Uses `Google's DeepMind Gemma 3 4B` locally for fast, private inference.  
 - **Frontend:** Built with React.js and styled using Tailwind CSS. Handles chat UI and JSON export.  
 - **Backend:** Node.js + Express.js handles chat messages to the local model and validates JWT tokens.
 - **Authentication:** Secured user login via Auth0 SPA + JWT backend, providing protected endpoints for chat.
@@ -19,7 +19,7 @@
 
 - **Frontend:** React.js + Tailwind CSS  
 - **Backend:** Node.js + Express.js  
-- **Local Model:** Ollama Deepseek-R1 1.5B (distilled 4-bit quantized model)  
+- **Local Model:** Google's DeepMind Gemma 3 4B (distilled 4-bit quantized model)  
 - **Data Storage:** Frontend JSON export (no database required)
 
 ## Screenshot
@@ -36,7 +36,7 @@
 
 - Node.js (v18+ recommended)  
 - npm or yarn  
-- Ollama local LLM installed (deepseek-r1:1.5b or any)
+- Ollama local LLM installed (gemma3:4b or any)
 
 ### Installation
 
