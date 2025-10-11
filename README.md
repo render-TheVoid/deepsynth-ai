@@ -10,8 +10,7 @@
 - **Frontend:** Built with React.js and styled using Tailwind CSS. Handles chat UI and JSON export.  
 - **Backend:** Node.js + Express.js handles chat messages to the local model and validates JWT tokens.
 - **Authentication:** Secured user login via Auth0 SPA + JWT backend, providing protected endpoints for chat.
-- **Downloadable Chat Logs:** Frontend allows exporting conversations as structured JSON files.  
-- **Session Metadata:** Each message includes timestamps, roles, and model metadata (like quantization and response time).  
+- **Downloadable Chat Logs:** Frontend allows exporting conversations as structured JSON files.   
 - **No Database:** All chats are temporary and can be saved locally as JSON.
 
 ---
@@ -24,6 +23,7 @@
 - **Data Storage:** Frontend JSON export (no database required)
 
 ## Screenshot
+
 
 ![DeepSynth AI](deepsynth-ai.png)
 ![DeepSynth AI Account Page](deepsynth-login.png)

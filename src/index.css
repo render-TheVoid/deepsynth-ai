@@ -3,7 +3,7 @@
 @import 'tailwindcss';
 
 * {
-    font-family: "Inter";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter";
 }
  
 pre {
@@ -21,7 +21,6 @@ code {
 
 code span {
   font-family: 'Fira Code';
-  /* font-size: 12px; */
 }
 
 .custom-scroll::-webkit-scrollbar,

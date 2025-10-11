@@ -8,7 +8,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
-const MODEL = process.env.MODEL || "deepseek-r1:1.5b";
+const MODEL = process.env.MODEL || "gemma3:4b";
 
 const jwtCheck = auth({
   audience: 'https://deepsynth-api.local',
@@ -54,7 +54,8 @@ app.post('/chat', jwtCheck, async (req, res) => {
                         - Do not go off-topic or wander outside the scope of the user’s request.
                         - Be witty, helpful, and entertaining, while maintaining reliability and precision.
 
-                        You are DeepSynth — a local LLM assistant with brains, sarcasm, and just enough charm to keep the user guessing.`
+                        You are DeepSynth — a local LLM assistant with brains, sarcasm, and just enough charm to keep the user guessing.
+                        Just don't say your name in every message, say it only when asked.`
                     },
                     {
                         role: "user",

@@ -39,12 +39,12 @@ const Account = () => {
                             </div>
                         </div>
                         <div className="buttons flex flex-row gap-5">
-                            <Link to={'/'}>
-                                <div className=" text-white/70 font-bold border hover:scale-105 transition-all backdrop-blur-3xl border-white/20 hover:bg-white/40 px-5 py-3 rounded-2xl">
+                            <Link to={'/chat'}>
+                                <div className=" text-white/70 font-bold border hover:scale-105 transition-all backdrop-blur-3xl border-white/10 hover:bg-white/40 px-5 py-3 rounded-2xl">
                                     <p>Continue to Chat</p>
                                 </div>
                             </Link>
-                            <div onClick={(e) => logout()} className="backdrop-blur-3xl shadow-[0_0px_30px_rgba(0,0,0,0.4)] p-3 px-5 hover:scale-105 transition-all hover:bg-red-900/30 hover:text-red-900 rounded-2xl bg-red-800 font-semibold border-red-800 border-[2px] text-black cursor-pointer">
+                            <div onClick={(e) => logout()} className="backdrop-blur-3xl shadow-[0_0px_30px_rgba(0,0,0,0.4)] p-3 px-5 hover:scale-105 transition-all hover:bg-red-900/50 hover:text-red-900 rounded-2xl bg-transparent hover:border-red-900 text-white/70 font-semibold border-white/10 border-[1px] cursor-pointer">
                                 <p>Sign Out</p>
                             </div>
                         </div>
