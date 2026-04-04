@@ -25,7 +25,8 @@
 ## Screenshot
 
 ![DeepSynth AI Welcome Page](deepsynth-welcome.png)
-![DeepSynth AI](deepsynth-ai.png)
+![DeepSynth AI](deepsynth-chat-one.png)
+![DeepSynth AI](deepsynth-chat-two.png)
 ![DeepSynth AI Account Page](deepsynth-login.png)
 
 ---
