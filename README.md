@@ -43,6 +43,10 @@
 1. Clone the repository:
 
 ```bash
+<<<<<<< HEAD
+=======
+
+>>>>>>> auth
 git clone https://github.com/render-thevoid/deepsynth-ai.git
 
 cd deepsynth-ai
@@ -61,5 +65,8 @@ cd server && npm start
 - **Support for multiple local LLM models**  
 - **Mobile-friendly responsive design**
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> auth
 ---

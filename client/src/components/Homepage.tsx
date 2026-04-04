@@ -163,7 +163,11 @@ const Homepage = () => {
           {messages.map((msg, i) => (
             <div
               key={i}
+<<<<<<< HEAD
               className={`p-2 pl-4 pr-4 rounded-4xl ${msg.type === "user"
+=======
+              className={`p-2 pl-4 pr-4 rounded-4xl prose prose-invert prose-green ${msg.type === "user"
+>>>>>>> auth
                 ? "bg-[#303030] ml-auto text-right shadow-2xl w-fit"
                 : "mr-auto text-left w-180"
                 }`}
