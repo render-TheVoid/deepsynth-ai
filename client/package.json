@@ -1,5 +1,5 @@
 {
-  "name": "react-chatbot",
+  "name": "deepsynth-ai",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.5.0",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.13",
     "autoprefixer": "^10.4.21",
     "axios": "^1.12.2",

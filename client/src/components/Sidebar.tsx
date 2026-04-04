@@ -1,6 +1,6 @@
 import newChatIcon from '../assets/addIcon.svg';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 // import settingsIcon from '../assets/settings.svg';
 // import { useState,  } from 'react';
@@ -27,13 +27,6 @@ const Sidebar = ({ message }: SidebarProps) => {
         loginWithRedirect();
     }
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            console.log(user);
-        }
-    }, [])
-
-
     return (
         <div className='flex flex-col p-2 gap-3 w-60 bg-[url(/blackhole.jpg)] bg-cover bg-[30%]  h-screen justify-between fixed overflow-y-auto overflow-x-hidden sidebar-scroll'>
             <div className="logo pt-3 text-sm">
@@ -48,7 +41,7 @@ const Sidebar = ({ message }: SidebarProps) => {
                     </div>
                     {message?.trim() && <div className="chats pt-3 border-t border-white/20">
                         <p className="chat pl-5 pb-3 text-white/40">Chats</p>
-                        <div className="previous-chats pr-2.5 pt-2.5 pl-3.5 pb-2 text-[15px] items-center rounded-2xl shadow-2xl backdrop-blur-sm bg-white/30 border border-white/10">
+                        <div className="previous-chats pr-2.5 pt-2.5 pl-3.5 pb-2 text-md items-center rounded-2xl shadow-2xl backdrop-blur-sm bg-white/30 border border-white/10">
                             <p className='text-black/80'>{message}</p>
                         </div>
                     </div>}

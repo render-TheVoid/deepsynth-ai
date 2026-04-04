@@ -43,23 +43,33 @@
 1. Clone the repository:
 
 ```bash
-
 git clone https://github.com/render-thevoid/deepsynth-ai.git
+cd deepsynth
 
-cd deepsynth-ai
+npx nodemon service/ai.service.js
 
-cd client && npm run dev
-
-cd server && npm start
+npm run dev
 
 ```
 
 # Future Improvements
 
-- **Light mode** for the frontend UI  
+- **Dark mode** for the frontend UI  
 - **Database integration** for persistent chat history  
 - **Enhanced analytics** for exported conversations  
 - **Support for multiple local LLM models**  
 - **Mobile-friendly responsive design**
 
+
 ---
+
+# Contributing
+
+We welcome contributions! You can help by:
+
+- Submitting bug reports or feature requests  
+- Forking the repository and making improvements  
+- Creating pull requests for new features or fixes  
+- Suggesting enhancements or optimizations  
+
+Please follow standard GitHub workflow and best practices when contributing.

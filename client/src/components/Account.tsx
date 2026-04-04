@@ -19,7 +19,7 @@ const Account = () => {
                 <Topbar />
                 {isAuthenticated &&
                     <div className="flex justify-center items-center h-screen -translate-y-15 flex-col gap-5">
-                        <img className="w-35 rounded-[70px] shadow-[0_0px_40px_rgba(0,0,0,0.6)]" src={user?.picture} alt="" />
+                        <img className="w-35 rounded-[50%] shadow-[0_0px_40px_rgba(0,0,0,0.6)]" src={user?.picture} alt="" />
                         <div className="user-info list-none w-[30%] flex flex-col font-semibold gap-5 border border-white/10 p-4  rounded-3xl text-white/70 backdrop-blur-2xl shadow-[0_0px_60px_rgba(0,0,0,0.4)]">
                             <div className="flex flex-row justify-between p-1">
                                 <li>Given Name</li>

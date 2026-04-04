@@ -16,13 +16,12 @@ interface AuthContextProviderProps {
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
+ 
 export const AuthContextProvider:React.FC<AuthContextProviderProps> = ({ children }) => {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
     const { user, isAuthenticated, isLoading } = useAuth0();
-    console.log("loginwithredirect: ", loginWithRedirect)
-
+    
     return (
         <AuthContext.Provider value={{ loginWithRedirect, logout, user, isAuthenticated, isLoading }}>
             {children}
