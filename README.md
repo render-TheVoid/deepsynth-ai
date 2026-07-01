@@ -1,181 +1,116 @@
 # DeepSynth
 
-**DeepSynth** is a web-based chatbot powered by a **local LLM** (Google's DeepMind Gemma 3 4B, distilled 4-bit quantized model). It allows users to chat locally with the model and download conversation logs as JSON.
-
-No database is required. Conversations are handled in memory and can be exported directly from the frontend.
+**DeepSynth** is a web-based chatbot powered by a **local LLM** (Google's DeepMind Gemma 3 4B, distilled 4-bit quantized model). It allows users to chat securely with a locally hosted language model and download their conversation logs as JSON. No external database is required — all data is handled in-memory and can be exported seamlessly from the frontend.
 
 ---
 
 ## Features
 
-* 🧠 **Local LLM Integration** using Google's DeepMind Gemma 3 4B
-* 💬 **Interactive Chat Interface** built with React and Tailwind CSS
-* 🔒 **Authentication** powered by Auth0 SPA + JWT validation
-* 📥 **Downloadable Chat Logs** exported as structured JSON files
-* ⚡ **Node.js + Express Backend** for API routing and model communication
-* 🐳 **Dockerized Deployment** with Docker Compose
-* 🚫 **No Database Required**
+- **Local LLM Integration:** Uses `Google's DeepMind Gemma 3 4B` locally via Ollama for fast, private, and secure inference.  
+- **Modern Frontend:** Built with React.js (Vite) and styled using Tailwind CSS. It features a responsive chat UI with markdown support and code highlighting.
+- **Robust Backend:** Node.js + Express.js backend handles secure communications between the frontend and the local model.
+- **Authentication:** Secured user login via Auth0 SPA + JWT backend, providing protected endpoints for the chat interface.
+- **Downloadable Chat Logs:** Easily export your conversations as structured JSON files directly from the UI.   
+- **No Database Needed:** All chat sessions are temporary. You maintain control of your data by saving it locally.
 
 ---
 
 ## Tech Stack
 
-### Frontend
+**Frontend:** 
+- React.js (Vite)
+- Tailwind CSS
+- React Markdown (with highlight.js support)
+- Auth0 for React
 
-* React.js
-* Tailwind CSS
-* Auth0 SPA SDK
+**Backend:** 
+- Node.js
+- Express.js
+- Express OAuth2 JWT Bearer for API security
 
-### Backend
+**AI & Local Execution:** 
+- Google's DeepMind Gemma 3 4B (distilled 4-bit quantized model)
+- Ollama
 
-* Node.js
-* Express.js
-* JWT Authentication
-
-### AI
-
-* Ollama
-* Google DeepMind Gemma 3 4B (4-bit quantized)
-
-### DevOps
-
-* Docker
-* Docker Compose
+**Deployment & Containerization:**
+- Docker & Docker Compose
 
 ---
 
 ## Screenshots
 
-![DeepSynth AI Welcome Page](deepsynth-welcome.png)
+| Welcome Page | Chat Interface |
+|:---:|:---:|
+| ![DeepSynth Welcome Page](client/screenshots/deepsynth-welcome.png) | ![DeepSynth](client/screenshots/deepsynth-chat-one.png) |
 
-![DeepSynth AI Chat](deepsynth-chat-one.png)
-
-![DeepSynth AI Chat](deepsynth-ai-two.png)
-
-![DeepSynth AI Login](deepsynth-login.png)
+| AI Response | Account & Login |
+|:---:|:---:|
+| ![DeepSynth](client/screenshots/deepsynth-ai-two.png) | ![DeepSynth Account Page](client/screenshots/deepsynth-login.png) |
 
 ---
 
-## Prerequisites
+## Getting Started
 
-* Docker
-* Docker Compose
-* Ollama installed locally
-* Gemma model pulled via Ollama
+### Prerequisites
 
+Before you begin, ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/en/) (v18+ recommended)
+- [npm](https://www.npmjs.com/) or yarn
+- [Ollama](https://ollama.com/) (Ensure you have a model like `gemma3:4b` downloaded locally)
+- [Docker](https://www.docker.com/) (optional, for containerized setup)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/render-thevoid/deepsynth.git
+   cd deepsynth
+   ```
+
+2. **Environment Setup:**
+   You will need to configure your Auth0 environment variables in both the `client` and `server` directories. Create a `.env` file in each directory containing the required Auth0 Domain, Client ID, and API Audience keys.
+
+#### Option A: Manual Setup
+
+**Start the Frontend:**
 ```bash
-ollama pull gemma3:4b
+cd client
+npm install
+npm run dev
 ```
 
----
+**Start the Backend:**
+```bash
+cd server
+npm install
+npm start
+```
 
-## Running with Docker
+#### Option B: Docker Setup
 
-### Build and Start
+If you prefer to run the application using Docker, you can use the provided `docker-compose.yml` file.
 
 ```bash
 docker compose up --build
 ```
-
-### Run in Background
-
-```bash
-docker compose up -d --build
-```
-
-### Stop Containers
-
-```bash
-docker compose down
-```
-
----
-
-## Local Development
-
-### Clone Repository
-
-```bash
-git clone https://github.com/render-thevoid/deepsynth-ai.git
-
-cd deepsynth-ai
-```
-
-### Frontend
-
-```bash
-cd client
-
-npm install
-
-npm run dev
-```
-
-### Backend
-
-```bash
-cd server
-
-npm install
-
-npm start
-```
-
----
-
-## Environment Variables
-
-### Server
-
-```env
-AUTH0_AUDIENCE=your_audience
-AUTH0_DOMAIN=your_domain
-PORT=5000
-```
-
-### Client
-
-```env
-VITE_AUTH0_DOMAIN=your_domain
-VITE_AUTH0_CLIENT_ID=your_client_id
-VITE_API_URL=http://localhost:5000
-```
-
----
-
-## Project Structure
-
-```text
-.
-├── client/
-│   ├── src/
-│   ├── Dockerfile
-│   └── package.json
-│
-├── server/
-│   ├── src/
-│   ├── Dockerfile
-│   └── package.json
-│
-├── docker-compose.yml
-└── README.md
-```
+This will start both the client (on port `5173`) and the server (on port `5000`).
 
 ---
 
 ## Future Improvements
 
-* Light mode
-* Persistent chat history with a database
-* Multiple model selection
-* Enhanced analytics for exported conversations
-* Mobile-first responsive design
-* Streaming responses from the model
+- [ ] **Light mode** support for the frontend UI.
+- [ ] **Database integration** for persistent chat history and user preferences.
+- [ ] **Enhanced analytics** for exported conversation data.
+- [ ] **Support for multiple local LLM models** (allowing users to select different Ollama models).
+- [ ] **Mobile-friendly responsive design** enhancements for better mobile usability.
 
 ---
 
-## Disclaimer
+## Contributing
 
-DeepSynth runs locally and keeps your conversations private.
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.
 
-Unlike most modern software, it does not immediately try to sell your thoughts to an advertising algorithm.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
