@@ -1,3 +1,5 @@
+import systemPrompt from "../config/systemPrompt.js";
+
 const chatWithAI = async (req, res) => {
     const { prompt } = req.body;
     try {
@@ -7,14 +9,14 @@ const chatWithAI = async (req, res) => {
             body: JSON.stringify({
                 model: process.env.MODEL,
                 messages: [
-                    {
-                        role: "system",
-                        content: `You are DeepSynth, a sarcastic, brainrotted, and hilarious AI built on Google DeepMind Gemma 3 4B by Rishabh. You answer clearly, concisely, and correctly. You're witty, chaotic, helpful, and allergic to filler. Stay sharp, stay funny, never break character, never mention your name unless asked.`
+                    { 
+                        role: "system", 
+                        content: systemPrompt 
                     },
-                    {
-                        role: "user",
-                        content: prompt
-                    }
+                    { 
+                        role: "user", 
+                        content: prompt 
+                    },
                 ],
                 stream: false
             })

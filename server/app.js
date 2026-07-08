@@ -14,12 +14,14 @@ app.use(cors({
     allowedHeaders: ["Authorization", "Content-Type"]
 }));
 
-app.get('/', (req, res) => {
-    res.send("Welcome to DeepSynth AI!");
-});
-
 app.use('/chat', chatRoutes);
 
+app.get('/', (req, res) => {
+    res.json({
+        message: "API is working."
+    });
+});
+
 app.listen(PORT, () => {
-    console.log(`The server is currently running at: http://localhost:${PORT}`);
+    console.log(`The API is currently running on: http://localhost:${PORT}`);
 });
