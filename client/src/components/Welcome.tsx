@@ -58,7 +58,7 @@ const Welcome = () => {
                     </p>
                 </div>
                 <div className="pb-4 text-xl">
-                    <p className="text-white/50">Made by Rishabh - <a target="_blank" href="https://github.com/render-thevoid">GitHub</a></p>
+                    <p className="text-white/50">Made by Rishabh - <a target="_blank" href="https://github.com/rishhbh">GitHub</a></p>
                 </div>
             </div>
         </div>

@@ -43,7 +43,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/render-thevoid/deepsynth-ai.git
+git clone https://github.com/rishhbh/deepsynth-ai.git
 cd deepsynth
 
 npx nodemon service/ai.service.js

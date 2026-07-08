@@ -198,7 +198,7 @@ const Homepage = () => {
               }}><img className="scale-70" src={sendImage}></img></button>
           </div>
           <div className="mistakes flex justify-center">
-            <p className="text-xs text-white/80 mb-2 mt-1"><b>DeepSynth</b> can make mistakes. Check important info. Visit <u><a href="https://github.com/render-thevoid" target="_blank">GitHub</a></u></p>
+            <p className="text-xs text-white/80 mb-2 mt-1"><b>DeepSynth</b> can make mistakes. Check important info. Visit <u><a href="https://github.com/rishhbh" target="_blank">GitHub</a></u></p>
           </div>
         </div>
       </div>

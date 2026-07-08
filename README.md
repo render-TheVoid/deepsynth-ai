@@ -27,6 +27,7 @@
 - Node.js
 - Express.js
 - Express OAuth2 JWT Bearer for API security
+- Express Rate Limit for DDoS protection
 
 **AI & Local Execution:** 
 - Google's DeepMind Gemma 3 4B (distilled 4-bit quantized model)
@@ -37,15 +38,45 @@
 
 ---
 
+## Project Structure
+
+### Frontend Structure (`/client`)
+The client is a React application built with Vite.
+- **`/src`**: Contains all the React components, styling, and application logic.
+  - Manages the UI for the chat interface and welcome screen.
+  - Integrates Auth0 for user authentication.
+  - Handles the downloading of chat sessions.
+- **`package.json`**: Lists frontend dependencies like `@auth0/auth0-react`, `tailwindcss`, `react-markdown`, and `axios`.
+
+### Backend Structure (`/server`)
+The backend is an Express API that interfaces with the local LLM. It is strictly structured into modular components:
+- **`app.js`**: The main entry point initializing Express, CORS, and routing.
+- **`/config`**:
+  - `systemPrompt.js`: Defines the personality and boundaries of the AI character (DeepSynth).
+- **`/controllers`**:
+  - `chatController.js`: Manages the business logic for `/chat`. Sends prompts alongside the system prompt to the local Ollama instance and returns the AI's response.
+- **`/middlewares`**:
+  - `rateLimit.js`: Configures an `express-rate-limit` middleware to prevent abuse (DDoS protection) on the API endpoints.
+- **`/routes`**:
+  - `chatRoute.js`: Defines the POST `/chat` route. It applies rate limiting and JWT authentication middleware before routing the request to `chatController`.
+- **`/services`**:
+  - `auth0.js`: Sets up the `express-oauth2-jwt-bearer` middleware to validate Auth0 tokens and secure the API.
+
+---
+
 ## Screenshots
 
-| Welcome Page | Chat Interface |
-|:---:|:---:|
-| ![DeepSynth Welcome Page](client/screenshots/deepsynth-welcome.png) | ![DeepSynth](client/screenshots/deepsynth-chat-one.png) |
+**Welcome Page**
+![DeepSynth Welcome Page](client/screenshots/deepsynth-welcome.png)
 
-| AI Response | Account & Login |
-|:---:|:---:|
-| ![DeepSynth](client/screenshots/deepsynth-ai-two.png) | ![DeepSynth Account Page](client/screenshots/deepsynth-login.png) |
+**Chat Interface**
+![DeepSynth](client/screenshots/deepsynth-chat-one.png)
+
+**AI Response**
+![DeepSynth](client/screenshots/deepsynth-ai-two.png)
+
+**Account & Login**
+![DeepSynth Account Page](client/screenshots/deepsynth-login.png)
 
 ---
 
@@ -63,7 +94,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/render-thevoid/deepsynth.git
+   git clone https://github.com/rishhbh/deepsynth.git
    cd deepsynth
    ```
 
@@ -99,11 +130,11 @@ This will start both the client (on port `5173`) and the server (on port `5000`)
 
 ## Future Improvements
 
-- [ ] **Light mode** support for the frontend UI.
-- [ ] **Database integration** for persistent chat history and user preferences.
-- [ ] **Enhanced analytics** for exported conversation data.
-- [ ] **Support for multiple local LLM models** (allowing users to select different Ollama models).
-- [ ] **Mobile-friendly responsive design** enhancements for better mobile usability.
+- **Light mode** support for the frontend UI.
+- **Database integration** for persistent chat history and user preferences.
+- **Enhanced analytics** for exported conversation data.
+- **Support for multiple local LLM models** (allowing users to select different Ollama models).
+- **Mobile-friendly responsive design** enhancements for better mobile usability.
 
 ---
 

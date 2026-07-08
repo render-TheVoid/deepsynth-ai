@@ -9,4 +9,4 @@ const rateLimiter = rateLimit({
     message: "Too many authentication requests, try again later."
 });
 
-export default rateLimit;
+export default rateLimiter;
